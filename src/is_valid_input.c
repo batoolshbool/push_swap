@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 16:04:04 by bshbool           #+#    #+#             */
-/*   Updated: 2026/01/14 18:53:17 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/01/14 19:13:00 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,31 +47,58 @@ long	ft_atol(const char *str)
 ** 3. No overflow (must fit in int)
 */
 
+// static int	is_number_valid(const char *str)
+// {
+// 	long	num;
+// 	int		i;
+// 	int		j; //hi
+
+// 	i = 0;
+// 	if (!str || !str[0])
+// 		return (0);
+// 	if (str[i] == '-' || str[i] == '+')
+// 		i++;
+// 	if (!str[i])
+// 		return (0);
+// 	j = i;
+// 	while (str[j])
+// 	{
+// 		if (str[j] < '0' || str[j] > '9')
+// 			return (0);
+// 		j++;
+// 	}
+// 	num = ft_atol(str);
+// 	if (num < INT_MIN || num > INT_MAX)
+// 		return (0);
+// 	return (1);
+// }
+
 static int	is_number_valid(const char *str)
 {
 	long	num;
 	int		i;
-	int		j;
 
 	i = 0;
-	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t')
-		i++;
 	if (!str || !str[0])
 		return (0);
-	if (str[i] == '-' || str[i] == '+')
+
+	if (str[i] == '+' || str[i] == '-')
 		i++;
+
 	if (!str[i])
 		return (0);
-	j = i;
-	while (str[j])
+
+	while (str[i])
 	{
-		if (str[j] < '0' || str[j] > '9')
+		if (str[i] < '0' || str[i] > '9')
 			return (0);
-		j++;
+		i++;
 	}
+
 	num = ft_atol(str);
 	if (num < INT_MIN || num > INT_MAX)
 		return (0);
+
 	return (1);
 }
 

@@ -19,8 +19,7 @@ SRCS        = $(SRC_DIR)/push_swap.c \
               $(CMD_DIR)/swap.c \
               $(CMD_DIR)/push.c \
               $(CMD_DIR)/rotate.c \
-              $(CMD_DIR)/reverse_rotate.c \
-			   $(SRC_DIR)/extra_file.c 
+              $(CMD_DIR)/reverse_rotate.c
 
 OBJS        = $(SRCS:.c=.o)
 
