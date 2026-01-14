@@ -12,54 +12,53 @@
 
 #include "../includes/push_swap.h"
 
-void init_stack(t_stack **a, char **argv)
+void	init_stack(t_stack **a, char **argv)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (argv[i])
-    {
-        stack_add_back(a, stack_new(ft_atoi(argv[i])));
-        i++;
-    }
+	i = 0;
+	while (argv[i])
+	{
+		stack_add_back(a, stack_new(ft_atoi(argv[i])));
+		i++;
+	}
 }
 
-static void sort_dispatch(t_stack **a, t_stack **b)
+static void	sort_dispatch(t_stack **a, t_stack **b)
 {
-    int size;
+	int	size;
 
-    size = stack_size(*a);
-    if (size == 2)
-        sa(a);
-    else if (size <= 5)
-        sort_small(a, b);
-    else
-        radix_sort(a, b);
+	size = stack_size(*a);
+	if (size == 2)
+		sa(a);
+	else if (size <= 5)
+		sort_small(a, b);
+	else
+		radix_sort(a, b);
 }
 
-
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-    t_stack *a;
-    t_stack *b;
-    char    **input;
+	t_stack	*a;
+	t_stack	*b;
+	char	**input;
 
-    a = NULL;
-    b = NULL;
-    if (argc < 2)
-        return (0);
-    if (argc == 2)
-        input = ft_split(argv[1], ' ');
-    else
-        input = argv + 1;
-    if (!is_valid_input(input))
-        error_exit();
-    init_stack(&a, input);
-    assign_index(a);
-    if (argc == 2)
-        free_split(input);
-    if (!is_sorted(a))
-        sort_dispatch(&a, &b);
-    free_stack(&a);
-    return (0);
+	a = NULL;
+	b = NULL;
+	if (argc < 2)
+		return (0);
+	if (argc == 2)
+		input = ft_split(argv[1], ' ');
+	else
+		input = argv + 1;
+	if (!is_valid_input(input))
+		error_exit();
+	init_stack(&a, input);
+	assign_index(a);
+	if (argc == 2)
+		free_split(input);
+	if (!is_sorted(a))
+		sort_dispatch(&a, &b);
+	free_stack(&a);
+	return (0);
 }

@@ -12,65 +12,64 @@
 
 #include "../includes/push_swap.h"
 
-void exit_error(void)
+void	exit_error(void)
 {
-    write(2, "Error\n", 6);
-    exit(EXIT_FAILURE);
+	write(2, "Error\n", 6);
+	exit(EXIT_FAILURE);
 }
 
-int stack_size(t_stack *stack)
+int	stack_size(t_stack *stack)
 {
-    int size;
+	int	size;
 
-    size = 0;
-    while (stack)
-    {
-        size++;
-        stack = stack->next;
-    }
-    return (size);
+	size = 0;
+	while (stack)
+	{
+		size++;
+		stack = stack->next;
+	}
+	return (size);
 }
 
-int is_sorted(t_stack *stack)
+int	is_sorted(t_stack *stack)
 {
-    while (stack && stack->next)
-    {
-        if ((stack->value) > (stack->next->value))
-            return (0);
-        stack = stack->next;
-    }
-    return (1);
+	while (stack && stack->next)
+	{
+		if ((stack->value) > (stack->next->value))
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
 }
 
-int get_min_index(t_stack *stack)
+int	get_min_index(t_stack *stack)
 {
-    int min;
+	int	min;
 
-    if (!stack)
-        return (-1);
-
-    min = stack->index;
-    while (stack)
-    {
-        if ((stack->index) < min)
-            min = (stack->index);
-        stack = stack->next;
-    }
-    return (min);
+	if (!stack)
+		return (-1);
+	min = stack->index;
+	while (stack)
+	{
+		if ((stack->index) < min)
+			min = (stack->index);
+		stack = stack->next;
+	}
+	return (min);
 }
 
- int get_max_index(t_stack *stack)
+int	get_max_index(t_stack *stack)
 {
-int max;
+	int	max;
 
-    if (!stack)
-        return (-1);
-max = stack->index;
-while (stack)
-{
-if ((stack->index) > max)
-max = (stack->index);
-stack = stack->next;
-}
-return (max);
+	if (!stack)
+		return (-1);
+	max = stack->index;
+	while (stack)
+	{
+		if ((stack->index) > max)
+			max = (stack->index);
+		stack = stack->next;
+	}
+	return (max);
 }

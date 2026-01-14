@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 13:10:02 by bshbool           #+#    #+#             */
-/*   Updated: 2025/09/07 09:03:35 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/01/14 16:19:20 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,3 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 // 	t_list *helo = ft_lstmap(hi,&function,&del);
 // 	printf("%s\n",(char *)helo->content);
 // }
-
