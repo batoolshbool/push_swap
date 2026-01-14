@@ -1,11 +1,11 @@
 NAME        = push_swap
 
-CC          = cc
-CFLAGS      = -Wall -Wextra -Werror
-
 INCLUDES    = -Iincludes -Ilibft
 LIBFT_DIR   = libft
 LIBFT       = $(LIBFT_DIR)/libft.a
+
+CC          = cc
+CFLAGS      = -Wall -Wextra -Werror $(INCLUDES)
 
 SRC_DIR     = src
 CMD_DIR     = src/commands
@@ -19,25 +19,26 @@ SRCS        = $(SRC_DIR)/push_swap.c \
               $(CMD_DIR)/swap.c \
               $(CMD_DIR)/push.c \
               $(CMD_DIR)/rotate.c \
-              $(CMD_DIR)/reverse_rotate.c
+              $(CMD_DIR)/reverse_rotate.c \
+			   $(SRC_DIR)/extra_file.c 
 
 OBJS        = $(SRCS:.c=.o)
 
 all: $(LIBFT) $(NAME)
 
 $(NAME): $(OBJS)
-$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 $(LIBFT):
-make -C $(LIBFT_DIR)
+	make -C $(LIBFT_DIR)
 
 clean:
-rm -f $(OBJS)
-make -C $(LIBFT_DIR) clean
+	rm -f $(OBJS)
+	make -C $(LIBFT_DIR) clean
 
 fclean: clean
-rm -f $(NAME)
-make -C $(LIBFT_DIR) fclean
+	rm -f $(NAME)
+	make -C $(LIBFT_DIR) fclean
 
 re: fclean all
 

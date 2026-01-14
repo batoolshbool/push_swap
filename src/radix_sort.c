@@ -6,17 +6,19 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 16:03:17 by bshbool           #+#    #+#             */
-/*   Updated: 2026/01/14 16:21:57 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/01/14 18:57:42 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static void	radix_sort_bit(t_stack **a, t_stack **b, int bit, int size)
+static void	radix_sort_bit(t_stack **a, t_stack **b, int bit)
 {
 	int	j;
+	int	size;
 
 	j = 0;
+	size = stack_size(*a);
 	while (j < size)
 	{
 		if (((*a)->index >> bit) & 1)
@@ -44,7 +46,7 @@ void	radix_sort(t_stack **a, t_stack **b)
 	i = 0;
 	while (i < max_bits)
 	{
-		radix_sort_bit(a, b, i, size);
+		radix_sort_bit(a, b, i);
 		i++;
 	}
 }

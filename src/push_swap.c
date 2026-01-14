@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 14:04:29 by bshbool           #+#    #+#             */
-/*   Updated: 2026/01/14 16:02:17 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/01/14 18:57:52 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,11 @@ int	main(int argc, char **argv)
 	else
 		input = argv + 1;
 	if (!is_valid_input(input))
-		error_exit();
+		exit_error();
 	init_stack(&a, input);
 	assign_index(a);
 	if (argc == 2)
-		free_split(input);
+		free(input);
 	if (!is_sorted(a))
 		sort_dispatch(&a, &b);
 	free_stack(&a);

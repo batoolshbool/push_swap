@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 16:04:04 by bshbool           #+#    #+#             */
-/*   Updated: 2026/01/14 16:20:50 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/01/14 18:53:17 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ static int	is_number_valid(const char *str)
 	int		j;
 
 	i = 0;
+	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t')
+		i++;
 	if (!str || !str[0])
 		return (0);
 	if (str[i] == '-' || str[i] == '+')
