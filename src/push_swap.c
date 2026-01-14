@@ -6,41 +6,60 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 14:04:29 by bshbool           #+#    #+#             */
-/*   Updated: 2026/01/12 17:42:23 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/01/14 16:02:17 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int argc, char **argv)
+void init_stack(t_stack **a, char **argv)
 {
-	t_stack *stack_a;
-	t_stack *stack_b;
-	char	**stack;
+    int i;
 
-	stack_a = NULL;
-	stack_b = NULL;
-
-	//if(argc < 2 || (!argv[1][0] && argc == 2))
-		//invalid
-	/*else*/ if (argc == 2)
-		stack = ft_split(argv[1], ' ');
-	//initialize_stack(stack_a, stack);
-	if(!is_sorted(stack_a))
-	{
-		//if (2 numbers) -> swap a
-		//else if (3, 4 ,5 numbers) -> sort_small();
-		//else -> radix sort;
-	}
-	//free stacks, return 0
-		
+    i = 0;
+    while (argv[i])
+    {
+        stack_add_back(a, stack_new(ft_atoi(argv[i])));
+        i++;
+    }
 }
 
-/*functions
+static void sort_dispatch(t_stack **a, t_stack **b)
+{
+    int size;
 
-1. invalid input
-2. initalize stack
-3. is sorted
-3. sort small -> file
-4. sort big -> file
-5. free stacks*/
+    size = stack_size(*a);
+    if (size == 2)
+        sa(a);
+    else if (size <= 5)
+        sort_small(a, b);
+    else
+        radix_sort(a, b);
+}
+
+
+int main(int argc, char **argv)
+{
+    t_stack *a;
+    t_stack *b;
+    char    **input;
+
+    a = NULL;
+    b = NULL;
+    if (argc < 2)
+        return (0);
+    if (argc == 2)
+        input = ft_split(argv[1], ' ');
+    else
+        input = argv + 1;
+    if (!is_valid_input(input))
+        error_exit();
+    init_stack(&a, input);
+    assign_index(a);
+    if (argc == 2)
+        free_split(input);
+    if (!is_sorted(a))
+        sort_dispatch(&a, &b);
+    free_stack(&a);
+    return (0);
+}
