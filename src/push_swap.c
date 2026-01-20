@@ -6,11 +6,26 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 14:04:29 by bshbool           #+#    #+#             */
-/*   Updated: 2026/01/14 18:57:52 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/01/20 16:20:09 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+static void	free_split(char **split)
+{
+	int	i;
+
+	i = 0;
+	if (!split)
+		return ;
+	while (split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
+}
 
 void	init_stack(t_stack **a, char **argv)
 {
@@ -19,7 +34,7 @@ void	init_stack(t_stack **a, char **argv)
 	i = 0;
 	while (argv[i])
 	{
-		stack_add_back(a, stack_new(ft_atoi(argv[i])));
+		stack_add_back(a, stack_new((int)ft_atol(argv[i])));
 		i++;
 	}
 }
@@ -29,9 +44,7 @@ static void	sort_dispatch(t_stack **a, t_stack **b)
 	int	size;
 
 	size = stack_size(*a);
-	if (size == 2)
-		sa(a);
-	else if (size <= 5)
+	if (size <= 5)
 		sort_small(a, b);
 	else
 		radix_sort(a, b);
@@ -56,9 +69,10 @@ int	main(int argc, char **argv)
 	init_stack(&a, input);
 	assign_index(a);
 	if (argc == 2)
-		free(input);
+		free_split(input);
 	if (!is_sorted(a))
 		sort_dispatch(&a, &b);
 	free_stack(&a);
+	free_stack(&b);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 16:42:50 by bshbool           #+#    #+#             */
-/*   Updated: 2026/01/14 18:35:09 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/01/20 16:21:39 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	ra(t_stack **a)
 {
 	if (rotate(a))
 		write(1, "ra\n", 3);
-
 }
+
 void	rb(t_stack **b)
 {
 	if (rotate(b))

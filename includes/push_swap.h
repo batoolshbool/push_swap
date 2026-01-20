@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 14:13:13 by bshbool           #+#    #+#             */
-/*   Updated: 2026/01/14 18:57:57 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/01/20 16:20:46 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,5 @@ void				rrr(t_stack **a, t_stack **b);
 //push
 void				pa(t_stack **a, t_stack **b);
 void				pb(t_stack **b, t_stack **a);
-
-
 
 #endif

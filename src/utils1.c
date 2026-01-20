@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 16:05:44 by bshbool           #+#    #+#             */
-/*   Updated: 2026/01/14 16:23:04 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/01/20 16:20:15 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,13 @@
 void	free_stack(t_stack **stack)
 {
 	t_stack	*tmp;
-	t_stack	*current;
 
-	if (!stack || !*stack)
-		return ;
-	current = *stack;
-	while (current)
+	while (stack && *stack)
 	{
-		tmp = current->next;
-		free(current);
-		current = tmp;
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
 	}
-	*stack = NULL;
 }
 
 t_stack	*stack_new(int value)

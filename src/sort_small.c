@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 17:20:19 by bshbool           #+#    #+#             */
-/*   Updated: 2026/01/14 16:22:19 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/01/20 16:18:15 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,10 +93,15 @@ void	sort_small(t_stack **a, t_stack **b)
 	int	size;
 
 	size = stack_size(*a);
-	if (size == 3)
-		sort_three(a);
-	else if (size == 4)
-		sort_four(a, b);
-	else if (size == 5)
-		sort_five(a, b);
+	if (size == 2 && !is_sorted(*a))
+		sa(a);
+	else if (size <= 5)
+	{
+		if (size == 3)
+			sort_three(a);
+		else if (size == 4)
+			sort_four(a, b);
+		else if (size == 5)
+			sort_five(a, b);
+	}
 }
