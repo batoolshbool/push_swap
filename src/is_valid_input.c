@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 16:04:04 by bshbool           #+#    #+#             */
-/*   Updated: 2026/01/20 16:13:10 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/01/20 17:19:48 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ long	ft_atol(const char *str)
 	result = 0;
 	i = 0;
 	sign = 1;
-	if (!str)
+	if (!str || !str[0])
 		return (0);
 	if (str[i] == '-' || str[i] == '+')
 	{
