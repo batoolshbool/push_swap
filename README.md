@@ -81,3 +81,8 @@ Resources
 [Radix sort](https://www.geeksforgeeks.org/dsa/radix-sort/)
 
 [Radix sort (yt video)](https://www.youtube.com/watch?v=UyFH-KayvM4)
+
+### AI Usage
+
+AI tools were used to clarify project requirements, understand system calls, and structure this README.
+All code, debugging, and implementation were done manually by me.
